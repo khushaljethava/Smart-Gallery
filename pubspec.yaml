@@ -1,0 +1,62 @@
+name: smart_image_gallery
+description: A smart image gallery app with AI-powered captioning using BLIP ONNX models
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+
+  # Media & Permissions
+  photo_manager: ^3.0.0
+  permission_handler: ^12.0.1
+
+  # ONNX Runtime
+  onnxruntime:
+    git:
+      url: https://github.com/gtbluesky/onnxruntime_flutter.git
+      ref: 526de653892a84af3e1a541e49d4f4b3042bb2cd
+
+  # Database
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  sqflite: ^2.3.0
+  path: ^1.8.3
+
+  # Security
+  flutter_secure_storage: ^10.0.0
+
+  # Image Processing
+  image: ^4.1.3
+
+  # UI
+  cached_network_image: ^3.3.0
+  shimmer: ^3.0.0
+
+  # Utilities
+  path_provider: ^2.1.1
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.7
+  riverpod_generator: ^2.3.9
+  hive_generator: ^2.0.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - models/blip_vision_encoder_quantized.onnx
+    - models/blip_text_decoder_quantized.onnx
+    - models/blip_processor/vocab.txt
+
